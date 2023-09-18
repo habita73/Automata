@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Automata.MainPage"
+             xmlns:FontDataModel="clr-namespace:Automata.Helpers">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <HorizontalStackLayout Padding="5" Spacing="5">
+            <Image x:Name="imgConnectionIndicatorConnected" IsVisible="false"><Image.Source><FontImageSource Glyph="{x:Static FontDataModel:IconFont.PlugCircleCheck}" FontFamily="FaSolid" Color="#008800" Size="24"/></Image.Source></Image>
+            <Image x:Name="imgConnectionIndicatorDisConnected"><Image.Source><FontImageSource Glyph="{x:Static FontDataModel:IconFont.PlugCircleXmark  }" FontFamily="FaSolid" Color="#999999" Size="24"/></Image.Source></Image>
+        </HorizontalStackLayout>
+        <BoxView HeightRequest="1" VerticalOptions="End" Color="Gray" Grid.Row="1"/>
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout 
+        x:Name="MainContentStackLayout" Spacing="25" Padding="30,0"
+        VerticalOptions="Start" >
+                <Image
+            Source="dotnet_bot.png"
+            SemanticProperties.Description="Cute dot net bot waving hi to you!"
+            HeightRequest="50"
+            HorizontalOptions="Center" />
+
+                <Label
+            x:Name="lbl_Message"
+            Text="Welcome to .NET Multi-platform App UI"
+            SemanticProperties.HeadingLevel="Level2"
+            SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+            FontSize="18"
+            HorizontalOptions="Center" />
+
+                <Button
+            x:Name="CounterBtn"
+            Text="Click me"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="OnCounterClicked"
+            HorizontalOptions="Center" />
+
+                <StackLayout x:Name="ControlsPresenter" />
+            </VerticalStackLayout>
+
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Automata.Controls.ControlBase"
+             xmlns:FontDataModel="clr-namespace:Automata.Helpers"
+             MaximumWidthRequest="250">
+    <Frame BackgroundColor="#999999" BorderColor="White" HorizontalOptions="FillAndExpand" Padding="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label  x:Name="txt_Title" Text="Welcome to MQtt" HorizontalOptions="Fill" HorizontalTextAlignment="Center"/>
+            <Image MaximumHeightRequest="20" AbsoluteLayout.LayoutFlags="XProportional" HorizontalOptions="End">
+                    <Image.Source><FontImageSource Glyph="{x:Static FontDataModel:IconFont.EllipsisVertical  }" FontFamily="FaSolid" Color="#111111" Size="24"/></Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+            </Image>
+            <VerticalStackLayout WidthRequest="200" Grid.Row="1">             
+                <Switch x:Name="swh_OnOff" HorizontalOptions="Center" />
+            </VerticalStackLayout>            
+            <VerticalStackLayout Grid.Row="2" x:Name="SettingsPanel" IsVisible="false">
+                <BoxView HeightRequest="1" Color="Gray"/>
+                <Label Text="Settings"/>
+                <Entry Placeholder="Title" x:Name="entry_Title"/>
+                <Entry Placeholder="Topic" x:Name="entry_Topic"/>
+                <HorizontalStackLayout>
+                    <Label Text="QoS:" VerticalTextAlignment="Center"/>
+                    <Picker x:Name="pik_QoS">
+                    <Picker.Items>
+                        <x:String>At most once (QoS 0)</x:String>
+                        <x:String>At least once (QoS 1)</x:String>
+                        <x:String>Exactly once (QoS 2)</x:String>
+                    </Picker.Items>
+                </Picker>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                    <Button Text="Ok" Clicked="ButtonOk_Clicked" WidthRequest="80"/>
+                    <Button Text="Cancel" Clicked="ButtonCancel_Clicked" WidthRequest="80"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </Frame>
+</ContentView>
